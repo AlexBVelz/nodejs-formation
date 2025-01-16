@@ -1,0 +1,23 @@
+{
+    "produits": [
+        {
+            "id": 101,
+            "nom": "Ordinateur portable",
+            "prix": 800,
+            "stock": 50
+        },
+        {
+            "id": 102,
+            "nom": "Ordinateur portable",
+            "prix": 600,
+            "stock": 20
+        },
+        {
+            "id": 103,
+            "nom": "Ordinateur portable",
+            "prix": 8000,
+            "stock": 10
+        }
+
+    ]
+}
