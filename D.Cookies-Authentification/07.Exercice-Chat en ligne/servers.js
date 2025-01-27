@@ -17,8 +17,12 @@ io.on('connection', (socket) => {
     socket.on('chat message', (message) => {
         console.log('message:', message);
         io.emit('Message reçu = ' + message);
-        const pseudo = socket.pseudo;
-        io.emit('chat message', pseudo + ': ' + message);
+        const pseudo = socket.pseudo || 'Anonyme';
+        const messageData = {
+            pseudo: pseudo,
+            message: message,
+        };
+        io.emit('chat message', messageData);
     })
     socket.on('deconnexion', () => {
         console.log('Utilisateur  déconnecté');

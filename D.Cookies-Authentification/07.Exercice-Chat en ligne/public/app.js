@@ -2,7 +2,6 @@ $(function(){
     let socket = io();
     $('#chat-container').hide();
     $('form#form').hide();
-
     $('#pseudoModal').show();
 
     $('form#pseudoForm').submit(function(e){
@@ -10,7 +9,7 @@ $(function(){
         socket.emit('set pseudo', $('#pseudo').val());
         $('#pseudoModal').hide();
         $('#chat-container').show();
-        $('#form#form').show();
+        $('form#form').show();
         return false;
     });
 
@@ -21,6 +20,6 @@ $(function(){
         return false;
     });
     socket.on('chat message', function(data){
-        $('#message').append($('<li>').text(`${data.pseudo} : ${data.message}`));
+        $('#messages').append($('<li>').text(`${data.pseudo} : ${data.message}`));
     });
 });
