@@ -1,6 +1,6 @@
 const express = require('express')
 const passport = require('passport')
-const LocalStrategy = require('passport-local').LocalStrategy;
+const LocalStrategy = require('passport-local').Strategy;
 const session = require('express-session');
 
 const app = express();
@@ -50,12 +50,42 @@ app.post('/login',passport.authenticate('local',{
     failureFlash: true
 }))
 
+app.get('/login', (req, res) => {
+    res.send(`
+        <h2>Page de connexion</h2>
+        <form action="/login" method="POST">
+            <label>Nom d'utilisateur :</label>
+            <input type="text" name="username" required /><br/>
+            <label>Mot de passe :</label>
+            <input type="password" name="password" required /><br/>
+            <button type="submit">Se connecter</button>
+        </form>
+    `);
+});
+
+
 app.get('/dashboard',isAuthentificated, (req,res) => {
     res.send(`Bienvenue ${req.user.username} sur le tableau de bord, contenu -sécurisé`);
 })
 
-
-
-server.listen(PORT, () => {
-    console.log(`Le serveur est sur le port http://localhost:${PORT}`);
+app.get('/logout', (req,res) => {
+    req.logout();
+    res.redirect('/');
 })
+
+app.get('/dashboard',isAuthentificated, (req,res) => {
+    res.send(`Bienvenue ${req.user.username} sur le tableau de bord, contenu -sécurisé`);
+})
+
+function isAuthentificated(req,res,next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    res.redirect('/login');
+}   
+
+
+
+app.listen(PORT, () => {
+    console.log(`Le serveur est sur le port http://localhost:${PORT}`);
+});
