@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.3.0/socket.io.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Votes</h1>
+        <div class="options">
+            <button id="option1" onclick="vote(1)">Option 1</button>
+            <button id="option2" onclick="vote(2)">Option 2</button>
+            <button id="option3" onclick="vote(3)">Option 3</button>
+        </div>
+    </div>
+
+    <div class="counters">
+        <div id="counter1" class="counter">Vote pour option1 : 0</div>
+        <div id="counter2" class="counter">Vote pour option 2 : 0</div>    
+        <div id="counter3" class="counter">Vote pour option 3 : 0</div>
+        <div id="totalCounter" class="counter">Total des votes : 0</div>
+    </div>
+    <script src="app.js"></script>
+    
+</body>
+</html>
