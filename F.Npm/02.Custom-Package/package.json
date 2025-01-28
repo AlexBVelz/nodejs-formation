@@ -1,9 +1,9 @@
 {
-  "name": "laminutedecode",
+  "name": "velzog",
   "version": "1.0.0",
   "description": "package de la minute de code",
   "keywords": [
-    "laminutedecode",
+    "velzog",
     "welcome"
   ],
   "main": "index.js"
