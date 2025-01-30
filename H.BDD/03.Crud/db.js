@@ -4,7 +4,7 @@ const mysqlPool = mysql.createPool({
     host: 'localhost',
     user: 'root', 
     password: '',
-    database: 'employes_db'
+    database: 'employesdb'
 })
 
 // mysqlPool.query("SELECT 1")

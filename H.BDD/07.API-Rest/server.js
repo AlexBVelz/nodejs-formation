@@ -26,7 +26,7 @@ app.use(express.json());
 
 // Endpoint pour récupérer tous les produits
 app.get('/produits', (req, res) => {
-  const sql = 'SELECT * FROM produits';
+  const sql = 'SELECT * FROM produit';
   db.query(sql, (err, result) => {
     if (err) {
       console.error('Erreur lors de l\'exécution de la requête SQL:', err);
@@ -40,7 +40,7 @@ app.get('/produits', (req, res) => {
 // Endpoint pour récupérer un produit par ID
 app.get('/produits/:id', (req, res) => {
   const productId = req.params.id;
-  const sql = `SELECT * FROM produits WHERE produit_id = ${productId}`;
+  const sql = `SELECT * FROM produit WHERE produit_id = ${productId}`;
   db.query(sql, (err, result) => {
     if (err) {
       console.error('Erreur lors de l\'exécution de la requête SQL:', err);
@@ -58,7 +58,7 @@ app.get('/produits/:id', (req, res) => {
 // Endpoint pour créer un nouveau produit
 app.post('/produits', (req, res) => {
   const { produit_name, produit_price } = req.body;
-  const sql = `INSERT INTO produits (produit_name, produit_price) VALUES (?, ?)`;
+  const sql = `INSERT INTO produit (produit_name, produit_price) VALUES (?, ?)`;
   db.query(sql, [produit_name, produit_price], (err, result) => {
     if (err) {
       console.error('Erreur lors de l\'exécution de la requête SQL:', err);
@@ -73,7 +73,7 @@ app.post('/produits', (req, res) => {
 app.put('/produits/:id', (req, res) => {
   const productId = req.params.id;
   const { produit_name, produit_price } = req.body;
-  const sql = `UPDATE produits SET produit_name = ?, produit_price = ? WHERE produit_id = ?`;
+  const sql = `UPDATE produit SET produit_name = ?, produit_price = ? WHERE produit_id = ?`;
   db.query(sql, [produit_name, produit_price, productId], (err, result) => {
     if (err) {
       console.error('Erreur lors de l\'exécution de la requête SQL:', err);
@@ -91,7 +91,7 @@ app.put('/produits/:id', (req, res) => {
 // Endpoint pour supprimer un produit
 app.delete('/produits/:id', (req, res) => {
   const productId = req.params.id;
-  const sql = `DELETE FROM produits WHERE produit_id = ?`;
+  const sql = `DELETE FROM produit WHERE produit_id = ?`;
   db.query(sql, [productId], (err, result) => {
     if (err) {
       console.error('Erreur lors de l\'exécution de la requête SQL:', err);

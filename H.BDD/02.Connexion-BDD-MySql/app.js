@@ -10,9 +10,9 @@ const mysql = require('mysql');
 // Configurer la connexion à la base de données
 const connection = mysql.createConnection({
     host: 'localhost',
-    user: 'votre_utilisateur_mysql',
-    password: 'votre_mot_de_passe_mysql',
-    database: 'nom_de_votre_base_de_donnees'
+    user: 'root',
+    password: '',
+    database: 'employesDB'
 });
 
 // Établir la connexion à la base de données

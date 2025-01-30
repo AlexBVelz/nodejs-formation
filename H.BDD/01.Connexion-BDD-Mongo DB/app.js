@@ -8,7 +8,7 @@
 const MongoClient = require('mongodb').MongoClient;
 
 // Remplacez l'URL de connexion par votre propre URL MongoDB
-const url = 'mongodb+srv://laminutedecode:<password>@cluster0.oq6evpj.mongodb.net/';
+const url = 'mongodb+srv://velzogfr:x4GknpcdJtLVrEj@cluster0.ftnmq.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
 
 // Pour obtenir l'url
 // Connectez-vous à votre compte MongoDB Atlas.
