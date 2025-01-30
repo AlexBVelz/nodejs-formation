@@ -4,7 +4,7 @@ const bdd = mysql.createPool({
     host: 'localhost',
     user: 'root', 
     password: '',
-    database: 'shop'
+    database: 'magasin'
 })
 
 
